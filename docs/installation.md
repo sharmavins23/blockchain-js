@@ -102,3 +102,12 @@ tools, but it's purely optional.
 There's a guide on how to set it up [here](https://chocolatey.org/install).
 
 Make sure you check your environment variables afterwards!
+
+Using chocolatey, we can simply open a command prompt **in administrator mode**
+and type:
+
+```
+choco install nodejs-lts
+```
+
+That's it! Node will automatically be installed AND added to your PATH.
