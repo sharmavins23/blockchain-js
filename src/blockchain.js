@@ -7,7 +7,7 @@ const Block = require("./block"); // Our class definition for a block
 class Blockchain {
     constructor() {
         // Chain array contains all blocks in our copy of the blockchain
-        this.chain = [new Block("")]; // Create genesis block
+        this.chain = [new Block(Array(65).join("0"))]; // Create genesis block
     }
 
     // Returns the last block in the chain

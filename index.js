@@ -9,7 +9,6 @@ const Blockchain = require("./src/blockchain");
 global.difficulty = 5; // Difficulty to mine a particular block
 global.blockchain = new Blockchain(); // Our copy of the blockchain
 global.transactions = []; // Our current transactions
-global.connections = []; // Our current connections
 
 // Initialize express's class object
 const app = express();
