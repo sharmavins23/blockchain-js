@@ -5,7 +5,7 @@
 const crypto = require("crypto"); // Used for encryption algorithms; Built-in
 // Define a SHA256 hash function from our crypto library
 function SHA256(message) {
-    crypto
+    return crypto
         .createHash("sha256") // Set the hashing algorithm to SHA256
         .update(message) // Update the hash with the message
         .digest("hex"); // Return the hash as a hexadecimal string
@@ -38,9 +38,9 @@ class Block {
     }
 
     // Mine a new block (generate a hash that works)
-    mine(difficulty) {
+    mine(difficulty = 1) {
         // Let's loop until our hash starts with a string 0...000
-        //  The length of this string is set through difficulty
+        //  The length of this string is set through difficulty (default: 1)
         let checkString = Array(difficulty + 1).join("0");
 
         while (!this.hash.startsWith(checkString)) {

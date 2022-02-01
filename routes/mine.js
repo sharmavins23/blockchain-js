@@ -9,7 +9,7 @@ function mine(app) {
     app.get("/mine", (request, response) => {
         // Attempt to mine a block
         let block = new Block(Date.now(), global.transactions);
-        block.mine(); // Compute a hash for the block
+        block.mine(3); // Compute a hash for the block
 
         // Add the block to our chain
         global.blockchain.addBlock(block);
@@ -18,7 +18,7 @@ function mine(app) {
         global.transactions = [];
 
         // Send a success response
-        response.status(200).send("Block mined!");
+        response.status(200).send(`Block mined with hash: ${block.hash}`);
     });
 }
 
