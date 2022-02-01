@@ -47,4 +47,5 @@ class Block {
     }
 }
 
+// Export this object to be used elsewhere
 module.exports = Block;
