@@ -65,6 +65,16 @@ class Blockchain {
         // The new chain is valid, and longer, so let's replace ours
         this.chain = newChain;
     }
+
+    // Returns a string representation of the blockchain
+    prettify() {
+        let chainStr = "";
+        for (let i = 0; i < this.chain.length; i++) {
+            chainStr += this.chain[i].prettify();
+            chainStr += "<br><hr>";
+        }
+        return chainStr;
+    }
 }
 
 // Export this object to be used elsewhere
