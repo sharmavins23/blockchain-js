@@ -43,13 +43,20 @@ class Block {
         //  The length of this string is set through difficulty (default: 1)
         let checkString = Array(difficulty + 1).join("0");
 
+        let tries = 0;
         while (!this.hash.startsWith(checkString)) {
             // Increase the nonce so we get a whole different hash
             this.nonce++;
 
             // Recompute the entire hash
             this.hash = this.getHash();
+
+            // Count our tries!
+            tries++;
         }
+
+        // Out of curiosity, let's see how many tries we took!
+        console.log(`Block mined with ${tries} attempts.`);
     }
 
     // Pretty prints the block
