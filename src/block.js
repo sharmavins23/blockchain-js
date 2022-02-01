@@ -61,6 +61,7 @@ class Block {
 
     // Pretty prints the block
     prettify() {
+        // Add basic block parameters
         let blockStr = `<div><b>Block</b> #${this.hash}</div>`;
         blockStr += `<div><b>Timestamp:</b> ${this.timestamp}</div>`;
         blockStr += `<div><b>Previous Hash:</b> ${this.prevHash}</div>`;
