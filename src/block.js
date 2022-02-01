@@ -12,12 +12,15 @@ function SHA256(message) {
 }
 
 class Block {
-    constructor(timestamp = "", transactions = []) {
-        this.timestamp = timestamp;
+    constructor(prevHash = "", transactions = []) {
+        this.timestamp = Date.now(); // Set the timestamp to now
         this.transactions = transactions; // Transaction list
         this.hash = this.getHash(); // Current block's hash
-        this.prevHash = ""; // Previous block's hash
+        this.prevHash = prevHash; // Previous block's hash
         this.nonce = 0; // Some random value for mining purposes
+
+        // Mine the block
+        this.mine();
     }
 
     // Returns the hash of the current block
@@ -38,10 +41,10 @@ class Block {
     }
 
     // Mine a new block (generate a hash that works)
-    mine(difficulty = 1) {
+    mine() {
         // Let's loop until our hash starts with a string 0...000
         //  The length of this string is set through difficulty (default: 1)
-        let checkString = Array(difficulty + 1).join("0");
+        let checkString = Array(global.difficulty + 1).join("0");
 
         let tries = 0;
         while (!this.hash.startsWith(checkString)) {
@@ -56,7 +59,7 @@ class Block {
         }
 
         // Out of curiosity, let's see how many tries we took!
-        console.log(`Block mined with ${tries} attempts.`);
+        console.log(`Block mined with ${tries} attempts. Hash: ${this.hash}`);
     }
 
     // Pretty prints the block

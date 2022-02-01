@@ -21,11 +21,9 @@ class Blockchain {
     }
 
     // Adds a new block to the chain
-    addBlock(newBlock) {
-        // Since we are adding a new block, we need to set its prevHash
-        newBlock.prevHash = this.getLastBlock().hash;
-        // Then we need to reset the new block's hash
-        newBlock.hash = newBlock.getHash();
+    addBlock() {
+        // Mine a new block with the previous block's hash
+        let newBlock = new Block(this.getLastBlock().hash, global.transactions);
 
         // Let's add the new block to the chain, and make it immutable
         this.chain.push(Object.freeze(newBlock));
@@ -45,6 +43,12 @@ class Blockchain {
                 // Check that the current block's prevHash matches
                 prevBlock.hash !== currentBlock.prevHash
             ) {
+                return false;
+            }
+
+            // Check the hash validity
+            let checkString = Array(global.difficulty + 1).join("0");
+            if (!currentBlock.hash.startsWith(checkString)) {
                 return false;
             }
         }

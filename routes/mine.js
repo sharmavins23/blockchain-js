@@ -1,23 +1,16 @@
 // ./routes/mine.js
 // * The server mines a new block, and adds it to its personal chain.
 
-// * Imports
-const Block = require("../src/block");
-
 function mine(app) {
     app.get("/mine", (request, response) => {
-        // Attempt to mine a block
-        let block = new Block(Date.now(), global.transactions);
-        block.mine(4); // Compute a hash for the block
-
-        // Add the block to our chain
-        global.blockchain.addBlock(block);
+        // Add the block to our chain, which calls mine()
+        global.blockchain.addBlock();
 
         // Clear our transactions
         global.transactions = [];
 
         // Send a success response
-        let msg = `Block added: ${block.prettify()}`;
+        let msg = `Block added: ${global.blockchain.getLastBlock().prettify()}`;
         response.status(200).send(msg);
     });
 }

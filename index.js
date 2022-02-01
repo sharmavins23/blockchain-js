@@ -6,6 +6,7 @@ const morgan = require("morgan"); // Imports Morgan's class definition
 const Blockchain = require("./src/blockchain");
 
 // Global variables http://wiki.c2.com/?GlobalVariablesAreBad
+global.difficulty = 5; // Difficulty to mine a particular block
 global.blockchain = new Blockchain(); // Our copy of the blockchain
 global.transactions = []; // Our current transactions
 global.connections = []; // Our current connections
