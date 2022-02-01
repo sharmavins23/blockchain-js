@@ -10,21 +10,6 @@ class Blockchain {
         this.chain = [new Block(Date.now().toString())]; // Create genesis block
     }
 
-    // Overloaded constructor for JSONified blockchains
-    static fromJSON(json) {
-        let newBlockchain = new Blockchain();
-
-        // Iterate through blocks and push them
-        for (let i = 0; i < json.chain.length; i++) {
-            // Convert the JSONified block to a Block object
-            let newBlock = Block.fromJSON(json.chain[i]);
-            // Push the new block into the blockchain's chain
-            newBlockchain.chain.push(newBlock);
-        }
-
-        return newBlockchain;
-    }
-
     // Returns the last block in the chain
     getLastBlock() {
         return this.chain[this.chain.length - 1];
@@ -79,18 +64,6 @@ class Blockchain {
 
         // The new chain is valid, and longer, so let's replace ours
         this.chain = newChain;
-    }
-
-    // Returns the chain as a JSON object
-    jsonify() {
-        let obj = {
-            chain: [],
-        };
-
-        // Iterate through the chain and add each block to the object
-        for (let i = 0; i < this.chain.length; i++) {
-            obj.chain.push(this.chain[i].jsonify());
-        }
     }
 }
 

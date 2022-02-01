@@ -9,8 +9,8 @@ const Transaction = require("./src/transaction");
 
 // Global variables http://wiki.c2.com/?GlobalVariablesAreBad
 global.blockchain = new Blockchain(); // Our copy of the blockchain
-global.transactions = new Set(); // Our current transactions
-global.connections = new Set(); // Our current connections
+global.transactions = []; // Our current transactions
+global.connections = []; // Our current connections
 
 // Initialize express's class object
 const app = express();
