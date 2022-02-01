@@ -42,4 +42,5 @@ class Transaction {
     }
 }
 
+// Export this object to be used elsewhere
 module.exports = Transaction;

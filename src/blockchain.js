@@ -2,7 +2,7 @@
 // * Contains the class definition for a blockchain.
 
 // * Imports
-const Block = require("./block");
+const Block = require("./block"); // Our class definition for a block
 
 class Blockchain {
     constructor() {
