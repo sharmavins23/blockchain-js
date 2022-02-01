@@ -3,9 +3,7 @@
 const express = require("express"); // Imports Express's class definition
 const morgan = require("morgan"); // Imports Morgan's class definition
 // Imports from our class modules
-const Block = require("./src/block");
 const Blockchain = require("./src/blockchain");
-const Transaction = require("./src/transaction");
 
 // Global variables http://wiki.c2.com/?GlobalVariablesAreBad
 global.blockchain = new Blockchain(); // Our copy of the blockchain
