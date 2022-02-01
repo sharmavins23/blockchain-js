@@ -1,5 +1,5 @@
 // ./routes/newtransaction.js
-// * Creates a new mock transaction and adds it to the system
+// * Creates a new mock transaction and adds it to the system.
 
 // * Imports
 const Transaction = require("../src/transaction");
@@ -16,9 +16,7 @@ function newtransaction(app) {
         // Send the response for creating a new transaction
         response
             .status(200) // HTTP status code 200: OK
-            .send(
-                `Host ${tx.fromAddress} sent ${tx.toAddress} \$${tx.amount}.`
-            ); // Response message
+            .send(tx.prettify()); // Response message
     });
 }
 

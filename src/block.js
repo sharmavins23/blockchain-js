@@ -25,7 +25,7 @@ class Block {
         // Combine all transactions into strings
         let txStr = "";
         for (let i = 0; i < this.transactions.length; i++) {
-            txStr += JSON.stringify(this.transactions[i].jsonify());
+            txStr += JSON.stringify(this.transactions[i]);
         }
 
         // Hash together...
@@ -50,6 +50,22 @@ class Block {
             // Recompute the entire hash
             this.hash = this.getHash();
         }
+    }
+
+    // Pretty prints the block
+    prettify() {
+        let blockStr = `<div><b>Block</b> #${this.hash}</div>`;
+        blockStr += `<div><b>Timestamp:</b> ${this.timestamp}</div>`;
+        blockStr += `<div><b>Previous Hash:</b> ${this.prevHash}</div>`;
+
+        blockStr += "<div><b>Transactions:</b></div><div>";
+        // Iterate through all transactions
+        for (let i = 0; i < this.transactions.length; i++) {
+            blockStr += "    " + this.transactions[i].prettify();
+        }
+        blockStr += "</div>";
+
+        return blockStr;
     }
 }
 

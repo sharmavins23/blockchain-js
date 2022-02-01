@@ -18,7 +18,8 @@ function mine(app) {
         global.transactions = [];
 
         // Send a success response
-        response.status(200).send(`Block mined with hash: ${block.hash}`);
+        let msg = `Block added: ${block.prettify()}`;
+        response.status(200).send(msg);
     });
 }
 
