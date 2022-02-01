@@ -2,6 +2,15 @@
 // * Imports
 const express = require("express"); // Imports Express's class definition
 const morgan = require("morgan"); // Imports Morgan's class definition
+// Imports from our class modules
+const Block = require("./src/block");
+const Blockchain = require("./src/blockchain");
+const Transaction = require("./src/transaction");
+
+// Global variables http://wiki.c2.com/?GlobalVariablesAreBad
+global.blockchain = new Blockchain(); // Our copy of the blockchain
+global.transactions = new Set(); // Our current transactions
+global.connections = new Set(); // Our current connections
 
 // Initialize express's class object
 const app = express();
