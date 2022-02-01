@@ -8,7 +8,7 @@ function mine(app) {
     app.get("/mine", (request, response) => {
         // Attempt to mine a block
         let block = new Block(Date.now(), global.transactions);
-        block.mine(6); // Compute a hash for the block
+        block.mine(4); // Compute a hash for the block
 
         // Add the block to our chain
         global.blockchain.addBlock(block);
