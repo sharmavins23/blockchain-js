@@ -19,7 +19,7 @@ app.use(morgan("dev")); // Pretty-print requests with the "dev" format
 const port = 8080; // See: Wikipedia's List of TCP and UDP port numbers
 
 // Dynamically load all routes from the ./routes folder
-require("./routes")(app);
+require("./routes/DLR.js")(app);
 
 // Configure our server to run
 app.listen(port, () => {

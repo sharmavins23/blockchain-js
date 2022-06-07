@@ -11,7 +11,7 @@ function dynamicallyLoadRoutes(app) {
         // Make sure we skip this file, as it's not a route!
         //  Also skip all non JS files!
         if (
-            file === "dlr.js" ||
+            file === "DLR.js" ||
             file.substr(file.lastIndexOf(".") + 1) !== "js"
         )
             return;

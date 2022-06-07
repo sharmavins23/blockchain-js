@@ -16,5 +16,14 @@
     "fs": "^0.0.1-security",
     "morgan": "^1.10.0",
     "node-fetch": "^3.2.0"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sharmavins23/blockchain-js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sharmavins23/blockchain-js/issues"
+  },
+  "homepage": "https://github.com/sharmavins23/blockchain-js#readme"
 }
