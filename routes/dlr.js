@@ -1,4 +1,4 @@
-// ./routes/index.js
+// ./routes/dlr.js
 // * Dynamically loads route files included in this folder.
 
 // * Imports
@@ -11,7 +11,7 @@ function dynamicallyLoadRoutes(app) {
         // Make sure we skip this file, as it's not a route!
         //  Also skip all non JS files!
         if (
-            file === "index.js" ||
+            file === "dlr.js" ||
             file.substr(file.lastIndexOf(".") + 1) !== "js"
         )
             return;
