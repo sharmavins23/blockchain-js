@@ -4,21 +4,23 @@
 function validate(app) {
     // Validate the server's instance of a blockchain
     app.get("/validate", function (request, response) {
+        // Append our navbar
+        let responseMsg = global.navbar;
+
         // Check if the blockchain is valid
         let isValid = global.blockchain.isChainValid();
 
         // Formulate a response message
-        let responseStr = "";
         if (isValid) {
-            responseStr = "The blockchain is valid!";
+            responseMsg += "<p>The blockchain is valid!</p>";
         } else {
-            responseStr = "The blockchain is invalid!";
+            responseMsg = "<p>The blockchain is invalid!</p>";
         }
 
         // Send the response for validating the blockchain
         response
             .status(200) // HTTP status code 200: OK
-            .send(responseStr); // Response message
+            .send(responseMsg); // Response message
     });
 }
 

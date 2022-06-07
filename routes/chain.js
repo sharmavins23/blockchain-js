@@ -3,9 +3,12 @@
 
 function chain(app) {
     // Print out the entire blockchain
-    app.get("/chain", function (request, response) {
+    app.get("/", function (request, response) {
+        // Append our navbar
+        let chainStr = global.navbar;
+
         // Formulate a response message
-        let chainStr = global.blockchain.prettify();
+        chainStr += global.blockchain.prettify();
 
         // Send the response for printing out the blockchain
         response
